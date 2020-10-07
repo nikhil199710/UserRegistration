@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 
 namespace Regex_UC
@@ -7,9 +6,9 @@ namespace Regex_UC
     class Pattern
     {
         public static string REGEX_ENTRY = "^[A-Z][a-zA-Z]{2,}$";
-        public bool validateFirstName(string firstName)
+        public bool validateLastName(string lastName)
         {
-            return Regex.IsMatch(firstName, REGEX_ENTRY);
+            return Regex.IsMatch(lastName, REGEX_ENTRY);
         }
     }
     class Program
@@ -18,13 +17,15 @@ namespace Regex_UC
         static void Main(string[] args)
         {
             Pattern pattern = new Pattern();
-            Console.WriteLine("Enter First Name:");
-            if (pattern.validateFirstName(Console.ReadLine()))
+            Console.WriteLine("Enter Last Name:");
+            if (pattern.validateLastName(Console.ReadLine()))
             {
-                Console.WriteLine("First Name is Valid");
+                Console.WriteLine("Last Name is Valid");
             }
             else
-                Console.WriteLine("First Name is Invalid");
+            {
+                Console.WriteLine("Last Name is Invalid");
+            }
         }
     }
 }
