@@ -26,6 +26,13 @@ namespace Regex_UC
             return Regex.IsMatch(email, REGEX_EMAIL);
         }
 
+
+        public static string REGEX_MOBILE = @"\d{2}\s{1}[0-9]{10}";
+        public bool validateMobile(string mobile)
+        {
+            return Regex.IsMatch(mobile, REGEX_MOBILE);
+        }
+
     }
     class Program
     {
@@ -65,9 +72,19 @@ namespace Regex_UC
             {
                 Console.WriteLine("Email is Invalid");
             }
+
+
+            Console.WriteLine("Enter valid Mobile Number with your Country Code");
+            if (pattern.validateMobile(Console.ReadLine()))
+            {
+                Console.WriteLine("Mobile Number is Valid");
+            }
+            else
+                Console.WriteLine("Mobile Number is Invalid");
         }
     }
 }
+
 
 
 
