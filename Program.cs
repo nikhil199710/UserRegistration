@@ -33,6 +33,14 @@ namespace Regex_UC
             return Regex.IsMatch(mobile, REGEX_MOBILE);
         }
 
+
+        public static string REGEX_PASSWORD_R1 = @"^[a-zA-Z0-9]{8,}$";
+        public bool validatePasswordrule1(string password)
+        {
+            return Regex.IsMatch(password, REGEX_PASSWORD_R1);
+        }
+
+
     }
     class Program
     {
@@ -81,11 +89,53 @@ namespace Regex_UC
             }
             else
                 Console.WriteLine("Mobile Number is Invalid");
+
+
+            Console.WriteLine("Enter Password:");
+            if (pattern.validatePasswordrule1(Console.ReadLine()))
+            {
+                Console.WriteLine("Password is Valid");
+            }
+            else
+                Console.WriteLine("Password is Invalid");
+
+
+
         }
     }
 }
 
 
 
+
+//using System;
+//using System.Text.RegularExpressions;
+
+//namespace Regex_UC
+//{
+//    class Pattern
+//    {
+//        public static string REGEX_PASSWORD_R1 = @"^[a-zA-Z0-9]{8,}$";
+//        public bool validatePasswordrule1(string password)
+//        {
+//            return Regex.IsMatch(password, REGEX_PASSWORD_R1);
+//        }
+//    }
+//    class Program
+//    {
+
+//        static void Main(string[] args)
+//        {
+//            Pattern pattern = new Pattern();
+//            Console.WriteLine("Enter Password:");
+//            if (pattern.validatePasswordrule1(Console.ReadLine()))
+//            {
+//                Console.WriteLine("Password is Valid");
+//            }
+//            else
+//                Console.WriteLine("Password is Invalid");
+//        }
+//    }
+//}
 
 
