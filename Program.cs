@@ -40,6 +40,12 @@ namespace Regex_UC
             return Regex.IsMatch(password, REGEX_PASSWORD_R1);
         }
 
+        public static string REGEX_PASSWORD_RULE2 = @"^(?=.*[A-Z])[a-zA-Z\d]{8,}$";
+        public bool validatePasswordWithUppercase(string password)
+        {
+            return Regex.IsMatch(password, REGEX_PASSWORD_RULE2);
+        }
+
 
     }
     class Program
@@ -100,42 +106,14 @@ namespace Regex_UC
                 Console.WriteLine("Password is Invalid");
 
 
-
+            Console.WriteLine("Enter Password:");
+            if (pattern.validatePasswordWithUppercase(Console.ReadLine()))
+            {
+                Console.WriteLine("Password is Valid");
+            }
+            else
+                Console.WriteLine("Password is Invalid");
         }
     }
 }
-
-
-
-
-//using System;
-//using System.Text.RegularExpressions;
-
-//namespace Regex_UC
-//{
-//    class Pattern
-//    {
-//        public static string REGEX_PASSWORD_R1 = @"^[a-zA-Z0-9]{8,}$";
-//        public bool validatePasswordrule1(string password)
-//        {
-//            return Regex.IsMatch(password, REGEX_PASSWORD_R1);
-//        }
-//    }
-//    class Program
-//    {
-
-//        static void Main(string[] args)
-//        {
-//            Pattern pattern = new Pattern();
-//            Console.WriteLine("Enter Password:");
-//            if (pattern.validatePasswordrule1(Console.ReadLine()))
-//            {
-//                Console.WriteLine("Password is Valid");
-//            }
-//            else
-//                Console.WriteLine("Password is Invalid");
-//        }
-//    }
-//}
-
 
