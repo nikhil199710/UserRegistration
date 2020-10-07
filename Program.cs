@@ -47,6 +47,12 @@ namespace Regex_UC
         }
 
 
+        public static string REGEX_PASSWORD_RULE3 = @"^(?=.*[A-Z\d])[a-zA-Z\d]{8,}$";
+        public bool validatePasswordWithNumeric(string password)
+        {
+            return Regex.IsMatch(password, REGEX_PASSWORD_RULE3);
+        }
+
     }
     class Program
     {
@@ -113,7 +119,24 @@ namespace Regex_UC
             }
             else
                 Console.WriteLine("Password is Invalid");
+
+
+            Console.WriteLine("Enter Password:");
+            if (pattern.validatePasswordWithNumeric(Console.ReadLine()))
+            {
+                Console.WriteLine("Password is Valid");
+            }
+            else
+            {
+                Console.WriteLine("Password is Invalid");
+            }
+
+
+
         }
+
+
+
     }
 }
 
