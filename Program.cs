@@ -61,6 +61,13 @@ namespace Regex_UC
             return Regex.IsMatch(password, REGEX_PASSWORD_RULE4);
         }
 
+
+        public static string REGEX_EMAIL_SET = "^[a-zA-Z0-9]+([.+_-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]{2})?$";
+        public bool validate_email_set(string email)
+        {
+            return Regex.IsMatch(email, REGEX_EMAIL_SET);
+        }
+
     }
     class Program
     {
@@ -146,6 +153,24 @@ namespace Regex_UC
             }
             else
                 Console.WriteLine("Password is invalid");
+
+            string[] sampleEmail = {"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au",
+                                    "abc@1.com","abc@gmail.com.com","abc+100@gmail.com","abc","abc@.com.my" ,"abc123@gmail.a","abc123@.com","abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com","abc..2002@gmail.com","abc.@gmail.com","abc@abc@gmail.com","abc@gmail.com.1a","abc@gmail.com.aa.au"};
+
+
+            //Pattern pattern = new Pattern();
+            foreach (string sample in sampleEmail)
+            {
+                //Console.WriteLine(sample);
+                if (pattern.validate_email_set(sample))
+                {
+                    Console.WriteLine("Email is Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Email is Invalid");
+                }
+            }
 
 
 
